@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="colorPrimary">#FF8000</color>
+
+    <color name="colorPrimaryDark">#C76B00</color>
+
+    <color name="backgroundDark">#36363D</color>
+    <color name="primaryLight">#E5E5E5</color>
+    <color name="grayDefault">#8E8E8E</color>
+    <color name="search">#F4F4F4</color>
+
+    <color name="colorLogoDark">#581800</color>
+    <color name="primary_dark">#000000</color>
+    <color name="secondary_on_color">#000000</color>
+    <color name="selected_icon_color">#FF8000</color>
+    <color name="unselected_icon_color">#B2B2B1</color>
+
+    <integer-array name="myColors">
+        <item>@color/white</item>
+        <item>@color/colorLogoDark</item>
+        <item>@color/primary_dark</item>
+        <item>@color/grayDefault</item>
+        <item>@color/primaryLight</item>
+    </integer-array>
+
+
+</resources>

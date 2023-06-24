@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="?attr/colorOnTertiary"
+    tools:context=".HosLayer.VideosModule.VideosFragment">
+    <LinearLayout
+        android:id="@+id/ll_header"
+        android:layout_width="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="16dp"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_list_playlist_1"
+            android:textSize="23sp"
+            android:textColor="@color/colorPrimary"
+            android:textAlignment="center"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/poppinsbold"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_list_playlist_2"
+            android:textSize="23sp"
+            android:layout_marginStart="7sp"
+            style="@style/Theme.Inkacast.TextDefault"
+            android:textAlignment="center"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/roboto_light"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_subtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/ll_header"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="10dp"
+        android:gravity="center_vertical"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_back"
+            android:src="@drawable/ic_atras"
+            android:padding="12dp"
+
+            android:layout_marginVertical="10dp"
+            app:tint="@color/white" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            >
+            <TextView
+                android:id="@+id/tv_title_playlist"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name of List 1"
+                android:textSize="16sp"
+                android:layout_marginStart="12sp"
+                style="@style/Theme.Inkacast.TextDefault"
+                android:textAlignment="center"
+                android:fontFamily="@font/poppinsmedium"
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_edit"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_title_playlist"
+                app:tint="@color/colorPrimary"
+                android:layout_marginStart="10dp"
+
+                />
+            <TextView
+                app:layout_constraintTop_toBottomOf="@+id/tv_title_playlist"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Última actualización 12/02"
+                android:textSize="14sp"
+                android:layout_marginStart="12sp"
+                style="@style/Theme.Inkacast.TextDefault"
+                android:textAlignment="center"
+                android:fontFamily="@font/roboto_light"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_back"
+                android:src="@drawable/ic_cast"
+                android:padding="12dp"
+                android:elevation="10dp"
+                android:layout_marginVertical="10dp"
+                app:tint="@color/white" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/ll_subtitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="vertical"
+        >
+        <include  layout="@layout/playlist_item" />
+        <include  layout="@layout/playlist_item" />
+        <include  layout="@layout/playlist_item" />
+        <include  layout="@layout/playlist_item" />
+        <include  layout="@layout/playlist_item" />
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

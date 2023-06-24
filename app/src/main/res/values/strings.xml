@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">Inkacast</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_home_tabs">Home</string>
+    <string name="title_contact_tabs">Navegador</string>
+    <string name="title_help_tabs">Playlist</string>
+    <string name="title_profile_tabs">Usuario</string>
+    <string name="description_fab">fab</string>
+    <string name="tv_not_connected">No se encuentra conectado a ningun dispositivo</string>
+    <string name="tv_duplicate_screen">Duplicar pantalla</string>
+    <string name="tv_tansfer_files">Transmitir contenido</string>
+    <string name="tv_images">Ímagenes</string>
+    <string name="tv_videos">Videos</string>
+    <string name="tv_music">Música</string>
+    <string name="tv_files">Archivos</string>
+    <string name="logo_description">Logo Inkacast</string>
+    <string name="add_device_button">Agregar dispositivo</string>
+    <string name="cast_description">No hay dispositivo conectado.</string>
+    <string name="setting_description">Ajustes</string>
+    <string name="galery_description">Galeria</string>
+    <string name="videos_description">Videos</string>
+    <string name="music_description">Musica</string>
+    <string name="files_description">Archivos</string>
+    <string name="hint_seach_web">¿Qué se te antoja ver hoy?</string>
+    <string name="coonected_to_device">Conectado a:</string>
+    <string name="tv_change_device">Cambiar dispositivo</string>
+    <string name="tv_streamming">Transmitiendo ...</string>
+    <string name="connecting">Buscando dispositivos...</string>
+    <string name="title_my_devices_1">Mis</string>
+    <string name="title_my_devices_2">Dispositivos\n</string>
+    <string name="title_list_playlist_1">Listas</string>
+    <string name="title_list_playlist_2">de reproducción</string>
+</resources>

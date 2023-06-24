@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    tools:context=".HosLayer.SettingsModule.SettingsActivity">
+    <Switch
+        android:id="@+id/swScreenMirror"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="wrap_content"
+        android:trackTint="#8B8B8B"
+        android:layout_height="wrap_content"
+        android:switchMinWidth="50dp"
+        android:switchPadding="16dp"
+        android:thumbTint="@color/colorPrimary"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+</LinearLayout>

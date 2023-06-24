@@ -1,0 +1,69 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Inkacast"  parent="Theme.MaterialComponents.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryVariant">#E37200</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/grayDefault</item>
+        <item name="colorSecondaryVariant">@color/primaryLight</item>
+        <item name="colorOnSecondary">@color/colorPrimary</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Background default -->
+        <item name="colorSurface">@color/white</item>
+        <item name="colorOnSurface">@color/white</item>
+        <item name="colorOnTertiary">@color/white</item>
+        <!-- Background button, icons,etc  -->
+        <item name="colorOutline">@color/colorPrimary</item>
+        <item name="searchViewStyle">@color/search</item>
+
+        <item name="searchHintIcon">@color/black</item>
+
+        <item name="colorOnPrimaryContainer">@color/colorPrimary</item>
+    </style>
+
+    <style name="Theme.Inkacast.Background" >
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <style name="Theme.Inkacast.Text" >
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="Theme.Inkacast.TextDefault" >
+        <item name="android:textColor">@color/grayDefault</item>
+    </style>
+
+    <style name="Theme.Inkacast.Toolbar" >
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <style name="Theme.Inkacast.SearchView" >
+        <item name="android:textColorHint">@color/black</item>
+        <item name="android:queryHint">@color/black</item>
+        <item name="android:textColor">@color/black</item>
+
+
+    </style>
+
+    <style name="SwitchInkacast" parent="Widget.MaterialComponents.CompoundButton.Switch">
+        <item name="thumbTint">@color/swich_selector</item>
+        <item name="trackTint">@color/grayDefault</item>
+    </style>
+
+
+    <style name="roundCornerDialog" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">
+        <item name="colorSurface">?attr/searchViewStyle</item>
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="shapeAppearanceOverlay">
+            @style/shape
+        </item>
+
+    </style>
+
+
+    <style name="shape">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">20dp</item>
+    </style>
+</resources>

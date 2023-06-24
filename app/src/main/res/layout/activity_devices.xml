@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   android:background="?attr/colorOnTertiary"
+    tools:context=".HosLayer.DevicesModule.DevicesActivity">
+
+    <LinearLayout
+        android:id="@+id/ll_header"
+        android:layout_width="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="16dp"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_my_devices_1"
+            android:textSize="23sp"
+            android:textColor="@color/colorPrimary"
+            android:textAlignment="center"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/poppinsbold"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_my_devices_2"
+            android:textSize="23sp"
+            android:layout_marginStart="7sp"
+            style="@style/Theme.Inkacast.TextDefault"
+            android:textAlignment="center"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/roboto_light"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll_search_devices"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="?attr/colorOnTertiary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/connecting"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/connecting"
+            android:textSize="19sp"
+            style="@style/Theme.Inkacast.TextDefault"
+            android:textAlignment="center"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/roboto_bold"
+            />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_devices"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll_header"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <include layout="@layout/device_item"/>
+        <include layout="@layout/device_item"/>
+        <include layout="@layout/device_item"/>
+        <include layout="@layout/device_item"/>
+        <Button
+            android:id="@+id/btn_change_device"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:elevation="12sp"
+            android:layout_width="200dp"
+            android:layout_marginHorizontal="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/corner_round"
+            android:fontFamily="@font/roboto_bold"
+            android:text="@string/add_device_button"
+            android:textAllCaps="false"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
