@@ -14,7 +14,6 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/back_effect"
         >
 
     <ImageButton
@@ -89,7 +88,7 @@
                 android:layout_width="260dp"
                 android:layout_marginHorizontal="40dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/btn_continue"
+                android:id="@+id/btn_add_devices"
                 android:background="@drawable/corner_round"
                 android:fontFamily="@font/roboto_bold"
                 android:text="@string/add_device_button"

@@ -14,6 +14,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.provider.MediaStore
 import android.util.Base64
+import android.util.Log
 import android.view.ContextMenu
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -37,6 +38,7 @@ import com.inkamedia.inkacast.R
 import com.inkamedia.inkacast.changeTab
 import com.inkamedia.inkacast.databinding.FragmentBrowseBinding
 import java.io.ByteArrayOutputStream
+import java.util.Random
 
 class BrowseFragment(private var urlNew: String) : Fragment() {
 
@@ -74,16 +76,19 @@ class BrowseFragment(private var urlNew: String) : Fragment() {
             settings.setSupportZoom(true)
             settings.builtInZoomControls = true
             settings.displayZoomControls = false
-            //dark mode.getForceDark(webView.settings)
             settings.domStorageEnabled = true
 
             webViewClient = object: WebViewClient(){
-
                 override fun onLoadResource(view: WebView?, url: String?) {
                     super.onLoadResource(view, url)
-                    if(MainActivity.isDesktopSite)
-                        view?.evaluateJavascript("document.querySelector('meta[name=\"viewport\"]').setAttribute('content'," +
-                                " 'width=1024px, initial-scale=' + (document.documentElement.clientWidth / 1024));", null)
+                    //get resource mp4 with regex
+                    val myvideomp4 = Regex("""(http(s?):)([/|.|\w|\s|-])*\.(?:mp4)""")
+                    val urlvideo = myvideomp4.find(url.toString())?.value.toString()
+                    if(urlvideo!=null){
+
+                    }
+
+
                 }
 
                 override fun doUpdateVisitedHistory(view: WebView?, url: String?, isReload: Boolean) {
@@ -93,58 +98,33 @@ class BrowseFragment(private var urlNew: String) : Fragment() {
 
                 override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
                     super.onPageStarted(view, url, favicon)
-                  //  mainRef.binding.progressBar.progress = 0
-                  //  mainRef.binding.progressBar.visibility = View.VISIBLE
-               //     if(url!!.contains("you", ignoreCase = false)) mainRef.binding.root
+
                 }
 
                 override fun onPageFinished(view: WebView?, url: String?) {
                     super.onPageFinished(view, url)
-                   // mainRef.binding.progressBar.visibility = View.GONE
                     binding.webView.zoomOut()
                 }
             }
             webChromeClient = object: WebChromeClient(){
-                //for setting icon to our search bar
-                override fun onReceivedIcon(view: WebView?, icon: Bitmap?) {
-                    super.onReceivedIcon(view, icon)
-                    try{
-                      //  mainRef.binding.webIcon.setImageBitmap(icon)
-                        webIcon = icon
-                    //    BrowserActivity.bookmarkIndex = mainRef.isBookmarked(view?.url!!)
-                        if(MainActivity.bookmarkIndex != -1){
-                            val array = ByteArrayOutputStream()
-                            icon!!.compress(Bitmap.CompressFormat.PNG, 100, array)
-                            MainActivity.bookmarkList[MainActivity.bookmarkIndex].image = array.toByteArray()
-                        }
-                    }catch (e: Exception){}
-                }
 
                 override fun onShowCustomView(view: View?, callback: CustomViewCallback?) {
                     super.onShowCustomView(view, callback)
                     binding.webView.visibility = View.GONE
-//                    binding.customView.visibility = View.VISIBLE
-//                    binding.customView.addView(view)
-                  //  mainRef.binding.root
+
                 }
 
                 override fun onHideCustomView() {
                     super.onHideCustomView()
                     binding.webView.visibility = View.VISIBLE
-                  //  binding.customView.visibility = View.GONE
 
                 }
 
                 override fun onProgressChanged(view: WebView?, newProgress: Int) {
                     super.onProgressChanged(view, newProgress)
-                    //mainRef.binding.progressBar.progress = newProgress
                 }
             }
 
-            binding.webView.setOnTouchListener { _, motionEvent ->
-              //  mainRef.binding.root.onTouchEvent(motionEvent)
-                return@setOnTouchListener false
-            }
 
             binding.webView.reload()
         }
@@ -154,8 +134,6 @@ class BrowseFragment(private var urlNew: String) : Fragment() {
 
     override fun onPause() {
         super.onPause()
-//        (requireActivity() as BrowserActivity).saveBookmarks()
-        //for clearing all webview data
         binding.webView.apply {
             clearMatches()
             clearHistory()
@@ -169,118 +147,4 @@ class BrowseFragment(private var urlNew: String) : Fragment() {
 
     }
 
-    override fun onCreateContextMenu(menu: ContextMenu, v: View, menuInfo: ContextMenu.ContextMenuInfo?) {
-        super.onCreateContextMenu(menu, v, menuInfo)
-
-        val result = binding.webView.hitTestResult
-        when(result.type){
-            WebView.HitTestResult.IMAGE_TYPE -> {
-                menu.add("View Image")
-                menu.add("Save Image")
-                menu.add("Share")
-                menu.add("Close")
-            }
-            WebView.HitTestResult.SRC_ANCHOR_TYPE, WebView.HitTestResult.ANCHOR_TYPE-> {
-                menu.add("Open in New Tab")
-                menu.add("Open Tab in Background")
-                menu.add("Share")
-                menu.add("Close")
-            }
-            WebView.HitTestResult.EDIT_TEXT_TYPE, WebView.HitTestResult.UNKNOWN_TYPE -> {}
-            else ->{
-                menu.add("Open in New Tab")
-                menu.add("Open Tab in Background")
-                menu.add("Share")
-                menu.add("Close")
-            }
-        }
-    }
-
-    override fun onContextItemSelected(item: MenuItem): Boolean {
-
-        val message = Handler().obtainMessage()
-        binding.webView.requestFocusNodeHref(message)
-        val url = message.data.getString("url")
-        val imgUrl = message.data.getString("src")
-
-        when(item.title){
-            "Open in New Tab" -> {
-                changeTab(url.toString(), BrowseFragment(url.toString()))
-            }
-            "Open Tab in Background" ->{
-                changeTab(url.toString(), BrowseFragment(url.toString()), isBackground = true)
-            }
-            "View Image" ->{
-                if(imgUrl != null) {
-                    if (imgUrl.contains("base64")) {
-                        val pureBytes = imgUrl.substring(imgUrl.indexOf(",") + 1)
-                        val decodedBytes = Base64.decode(pureBytes, Base64.DEFAULT)
-                        val finalImg =
-                            BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.size)
-
-                        val imgView = ShapeableImageView(requireContext())
-                        imgView.setImageBitmap(finalImg)
-
-                        val imgDialog = MaterialAlertDialogBuilder(requireContext()).setView(imgView).create()
-                        imgDialog.show()
-
-                        imgView.layoutParams.width = Resources.getSystem().displayMetrics.widthPixels
-                        imgView.layoutParams.height = (Resources.getSystem().displayMetrics.heightPixels * .75).toInt()
-                        imgView.requestLayout()
-
-                        imgDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-
-                    }
-                    else changeTab(imgUrl, BrowseFragment(imgUrl))
-                }
-            }
-
-            "Save Image" ->{
-                if(imgUrl != null) {
-                    if (imgUrl.contains("base64")) {
-                        val pureBytes = imgUrl.substring(imgUrl.indexOf(",") + 1)
-                        val decodedBytes = Base64.decode(pureBytes, Base64.DEFAULT)
-                        val finalImg =
-                            BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.size)
-
-                        MediaStore.Images.Media.insertImage(
-                            requireActivity().contentResolver,
-                            finalImg, "Image", null
-                        )
-                        Snackbar.make(binding.root, "Image Saved Successfully", 3000).show()
-                    }
-                    else startActivity(Intent(Intent.ACTION_VIEW).setData(Uri.parse(imgUrl)))
-                }
-            }
-
-            "Share" -> {
-                val tempUrl = url ?: imgUrl
-                if(tempUrl != null){
-                    if(tempUrl.contains("base64")){
-
-                        val pureBytes = tempUrl.substring(tempUrl.indexOf(",") + 1)
-                        val decodedBytes = Base64.decode(pureBytes, Base64.DEFAULT)
-                        val finalImg = BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.size)
-
-                        val path = MediaStore.Images.Media.insertImage(requireActivity().contentResolver,
-                            finalImg, "Image", null)
-
-                        ShareCompat.IntentBuilder(requireContext()).setChooserTitle("Sharing Url!")
-                            .setType("image/*")
-                            .setStream(Uri.parse(path))
-                            .startChooser()
-                    }
-                    else{
-                        ShareCompat.IntentBuilder(requireContext()).setChooserTitle("Sharing Url!")
-                            .setType("text/plain").setText(tempUrl)
-                            .startChooser()
-                    }
-                }
-                else Snackbar.make(binding.root, "Not a Valid Link!", 3000).show()
-            }
-            "Close" -> {}
-        }
-
-        return super.onContextItemSelected(item)
-    }
 }

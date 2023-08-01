@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:background="?attr/colorOnTertiary"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
@@ -51,7 +51,7 @@
                     android:layout_marginStart="26dp"
                     >
                     <TextView
-                        android:id="@+id/tv_room"
+                        android:id="@+id/tv_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Samsung"
@@ -59,7 +59,7 @@
                         android:fontFamily="@font/poppinsbold"
                         />
                     <TextView
-                        android:id="@+id/tv_device_name"
+                        android:id="@+id/tv_subname"
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:text="SQN900A Neo QLED."

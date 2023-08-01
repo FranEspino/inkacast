@@ -11,4 +11,12 @@ class SharedPreferenceApp(val context: Context) {
     fun setDarkMode(darkMode:Boolean) =  storage.edit().putBoolean(DARK_MODE, darkMode).apply()
     fun getDarkMode():Boolean = storage.getBoolean(DARK_MODE, false)
 
+    //IS DEVICE CONNECTED
+    val IS_DEVICE_CONNECTED = "IS_DEVICE_CONNECTED"
+    fun setIsDeviceConnected(isDeviceConnected:Boolean) =  storage.edit().putBoolean(IS_DEVICE_CONNECTED, isDeviceConnected).apply()
+    fun getIsDeviceConnected():Boolean = storage.getBoolean(IS_DEVICE_CONNECTED, false)
+
+    //DEVICE NAME
+
+
 }

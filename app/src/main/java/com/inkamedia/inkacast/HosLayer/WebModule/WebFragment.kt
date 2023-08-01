@@ -1,15 +1,12 @@
 package com.inkamedia.inkacast.HosLayer.WebModule
 
-import android.graphics.Color
 import android.os.Bundle
 import android.text.Html
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,7 +14,6 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
-import com.inkamedia.inkacast.ContextApp
 import com.inkamedia.inkacast.HosLayer.WebModule.adapters.TabAdapter
 import com.inkamedia.inkacast.HosLayer.WebModule.entities.Bookmark
 import com.inkamedia.inkacast.HosLayer.WebModule.entities.Tab
@@ -64,11 +60,11 @@ class WebFragment : Fragment() {
         binding.tabsBtn.setOnClickListener {
             val viewTabs = layoutInflater.inflate(R.layout.tabs_view, binding.root, false)
             val bindingTabs = TabsViewBinding.bind(viewTabs)
-            val title = if(ContextApp.context.getDarkMode()){
+            val title = //if(ContextApp.context.getDarkMode()){
                 Html.fromHtml("<font color='#FFFFFF'>Ventanas abiertas</font>")
-            }else{
-                Html.fromHtml("<font color='#000000'>Ventanas abiertas</font>")
-            }
+//            }else{
+//                Html.fromHtml("<font color='#000000'>Ventanas abiertas</font>")
+//            }
             val dialogTabs = MaterialAlertDialogBuilder(requireContext(), R.style.roundCornerDialog)
                 .setTitle(title)
 

@@ -31,4 +31,6 @@
     <string name="title_my_devices_2">Devices</string>
     <string name="title_list_playlist_1">My</string>
     <string name="title_list_playlist_2">Playlists</string>
+    <string name="chorecast">Chromecast</string>
+    <string name="device_available">Dispositivo disponible</string>
 </resources>
