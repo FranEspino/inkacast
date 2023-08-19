@@ -6,9 +6,10 @@ import android.os.Handler;
 import android.view.animation.AlphaAnimation;
 import android.widget.ImageView;
 
-import com.inkamedia.inkacast.dlna.BaseActivity;
-import com.inkamedia.inkacast.dlna.engine.DLNAContainer;
-import com.inkamedia.inkacast.dlna.service.DLNAService;
+import com.inkamedia.inkacast.presentation.MainActivity;
+import com.inkamedia.inkacast.utils.dlna.BaseActivity;
+import com.inkamedia.inkacast.utils.dlna.engine.DLNAContainer;
+import com.inkamedia.inkacast.utils.dlna.service.DLNAService;
 
 public class SplashActivity extends BaseActivity {
     private ImageView iv_splash;
@@ -21,7 +22,7 @@ public class SplashActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        startDLNAService();
+       // startDLNAService();
         findView();
         setUp();
     }

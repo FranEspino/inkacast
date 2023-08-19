@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorOnTertiary"
+    tools:context=".presentation.screen_browser.videos_extract.VideolistFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        xmlns:local="http://schemas.android.com/apk/res-auto"
+        local:layout_constraintTop_toTopOf="parent"
+        local:layout_constraintStart_toStartOf="parent"
+        local:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        local:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        local:popupTheme="@style/ThemeOverlay.AppCompat.Light" >
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:gravity="end"
+          >
+
+          <androidx.mediarouter.app.MediaRouteButton
+              android:id="@+id/media_route_video"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:backgroundTint="?attr/colorOnPrimary"
+              android:mediaRouteTypes="user"
+              />
+      </LinearLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:background="?attr/colorOnTertiary"
+        >
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_videos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+    </LinearLayout>
+
+
+</FrameLayout>

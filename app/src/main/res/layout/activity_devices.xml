@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
    android:background="?attr/colorOnTertiary"
-    tools:context=".HosLayer.DevicesModule.DevicesActivity">
+    tools:context=".presentation.screen_device.DevicesActivity">
 
     <LinearLayout
         android:id="@+id/ll_header"
@@ -82,6 +82,7 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cv_cast"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:elevation="10dp"
@@ -163,19 +164,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             />
-        <Button
-            android:id="@+id/btn_add_devices"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="center"
-            android:elevation="12sp"
-            android:layout_width="200dp"
-            android:layout_marginHorizontal="40dp"
-            android:layout_height="40dp"
-            android:background="@drawable/corner_round"
-            android:fontFamily="@font/roboto_bold"
-            android:text="@string/add_device_button"
-            android:textAllCaps="false"
-            android:textColor="@color/white" />
+
     </LinearLayout>
 
 

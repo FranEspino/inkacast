@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/view_enterphone"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:padding="16dp"
+    android:orientation="vertical">
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_namefolder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre del folder"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Login"
+        app:counterTextColor="@color/black"
+        app:endIconMode="clear_text"
+        app:helperTextTextColor="@color/black"
+        app:hintTextColor="@color/black"
+        app:startIconTint="@color/black">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_title_web"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textCapWords"
+            android:textColor="@color/black"
+            android:textCursorDrawable="@color/black" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_folder_url"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="URL del folder"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Login"
+        app:counterTextColor="@color/black"
+        app:endIconMode="clear_text"
+        app:helperTextTextColor="@color/black"
+        app:hintTextColor="@color/black"
+        app:startIconTint="@color/black">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_url_web"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textCapWords"
+            android:textColor="@color/black"
+            android:textCursorDrawable="@color/black" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_save_web"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Guardar"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:background="@drawable/btn_back"
+
+        />
+
+
+</LinearLayout>
+
+
+
+
+
+

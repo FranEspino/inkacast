@@ -13,7 +13,7 @@
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
 
     <application
-        android:name=".dlna.DMCApplication"
+        android:name=".commons.ContextApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -23,32 +23,19 @@
         android:theme="@style/Theme.Inkacast"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".presentation.screen_browser.browser_extract.BrowserActivity"
+            android:exported="false" />
+
         <meta-data
             android:name="com.google.android.gms.cast.framework.OPTIONS_PROVIDER_CLASS_NAME"
             android:value="com.google.android.exoplayer2.ext.cast.DefaultCastOptionsProvider" />
+
         <activity
-            android:name=".MainActivity"
+            android:name=".presentation.MainActivity"
             android:configChanges="uiMode|keyboard|keyboardHidden|screenSize|screenLayout|smallestScreenSize|orientation"
-            android:exported="false"
-            android:windowSoftInputMode="adjustPan"/>
-        <service
-            android:name=".HosLayer.StreamService"
             android:exported="true"
-            android:foregroundServiceType=""
-            android:permission="android.permission.BIND_FOREGROUND_SERVICE">
-            <intent-filter>
-                <action android:name="android.intent.action.FOREGROUND_SERVICE" />
-            </intent-filter>
-        </service>
-        <activity
-            android:name=".HosLayer.DevicesModule.DevicesActivity"
-            android:exported="false" />
-        <activity
-            android:name=".HosLayer.SettingsModule.SettingsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SplashActivity"
-            android:exported="true">
+            android:windowSoftInputMode="adjustPan" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -56,8 +43,25 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".dlna.service.DLNAService" >
+        <service
+            android:name=".services.StreamService"
+            android:exported="true"
+            android:foregroundServiceType=""
+            android:permission="android.permission.BIND_FOREGROUND_SERVICE">
+            <intent-filter>
+                <action android:name="android.intent.action.FOREGROUND_SERVICE" />
+            </intent-filter>
         </service>
+
+        <activity
+            android:name=".presentation.screen_device.DevicesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.screen_settings.SettingsActivity"
+            android:exported="false" />
+
+
+        <service android:name=".utils.dlna.service.DLNAService"></service>
     </application>
 
 </manifest>
