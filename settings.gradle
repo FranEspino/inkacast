@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Inkacast"
 include ':app'
+include ':app:core'

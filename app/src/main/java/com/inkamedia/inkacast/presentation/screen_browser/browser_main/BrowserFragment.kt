@@ -11,10 +11,8 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.webkit.WebSettings
-import android.widget.Toast
 import androidx.fragment.app.viewModels
-import com.fraporitmos.gdrivevideoplayer.repository.Webpage
-import com.inkamedia.inkacast.R
+import com.inkacast.gdrivevideoplayer.repository.Webpage
 import com.inkamedia.inkacast.presentation.MainActivity
 import com.inkamedia.inkacast.databinding.FragmentBrowseBinding
 import com.inkamedia.inkacast.presentation.screen_browser.browser_extract.FabDetector

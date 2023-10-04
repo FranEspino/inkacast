@@ -2,7 +2,7 @@ package com.inkamedia.inkacast.data.remote.localDataSource
 
 import android.content.Context
 import androidx.room.Room
-import com.fraporitmos.gdrivevideoplayer.repository.WebpageDatabase
+import com.inkacast.gdrivevideoplayer.repository.WebpageDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

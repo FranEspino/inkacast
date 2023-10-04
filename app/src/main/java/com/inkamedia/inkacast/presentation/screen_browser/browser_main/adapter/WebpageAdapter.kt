@@ -1,22 +1,17 @@
 package com.inkamedia.inkacast.presentation.screen_browser.browser_main.adapter
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.content.Context
-import android.content.Intent
-import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.util.Base64
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.fraporitmos.gdrivevideoplayer.repository.Webpage
+import com.inkacast.gdrivevideoplayer.repository.Webpage
 import com.inkamedia.inkacast.R
 import com.inkamedia.inkacast.databinding.WebsiteItemBinding
-import java.io.ByteArrayOutputStream
 
 class WebpageAdapter(
     private val webPage: MutableList<Webpage>,

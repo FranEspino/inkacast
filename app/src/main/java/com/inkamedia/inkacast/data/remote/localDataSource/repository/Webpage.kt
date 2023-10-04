@@ -1,4 +1,4 @@
-package com.fraporitmos.gdrivevideoplayer.repository
+package com.inkacast.gdrivevideoplayer.repository
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

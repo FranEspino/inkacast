@@ -3,7 +3,7 @@ package com.inkamedia.inkacast.commons
 import android.app.Application
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.room.Room
-import com.fraporitmos.gdrivevideoplayer.repository.WebpageDatabase
+import com.inkacast.gdrivevideoplayer.repository.WebpageDatabase
 import com.inkamedia.inkacast.utils.SharedPrefApp
 import dagger.hilt.android.HiltAndroidApp
 

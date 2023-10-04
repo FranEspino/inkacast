@@ -1,7 +1,7 @@
 package com.inkamedia.inkacast.data.remote.localDataSource.repository
 
-import com.fraporitmos.gdrivevideoplayer.repository.Webpage
-import com.fraporitmos.gdrivevideoplayer.repository.WebpageDao
+import com.inkacast.gdrivevideoplayer.repository.Webpage
+import com.inkacast.gdrivevideoplayer.repository.WebpageDao
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

@@ -1,11 +1,10 @@
 package com.inkamedia.inkacast.presentation.screen_browser.viewModel
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
-import com.fraporitmos.gdrivevideoplayer.repository.Webpage
+import com.inkacast.gdrivevideoplayer.repository.Webpage
 import com.inkamedia.inkacast.data.remote.localDataSource.repository.WebpageRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
