@@ -11,7 +11,8 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
-
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
     <application
         android:name=".commons.ContextApp"
         android:allowBackup="true"
@@ -23,22 +24,22 @@
         android:theme="@style/Theme.Inkacast"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
-        <activity
-            android:name=".presentation.screen_browser.browser_extract.BrowserActivity"
-            android:exported="false" />
+
 
         <meta-data
             android:name="com.google.android.gms.cast.framework.OPTIONS_PROVIDER_CLASS_NAME"
             android:value="com.google.android.exoplayer2.ext.cast.DefaultCastOptionsProvider" />
 
         <activity
+            android:name=".DownloadActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan"></activity>
+        <activity
             android:name=".presentation.MainActivity"
-            android:configChanges="uiMode|keyboard|keyboardHidden|screenSize|screenLayout|smallestScreenSize|orientation"
-            android:exported="true"
-            android:windowSoftInputMode="adjustPan" >
+            android:windowSoftInputMode="adjustPan"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -60,8 +61,7 @@
             android:name=".presentation.screen_settings.SettingsActivity"
             android:exported="false" />
 
-
-        <service android:name=".utils.dlna.service.DLNAService"></service>
+        <service android:name=".utils.dlna.service.DLNAService" />
     </application>
 
 </manifest>

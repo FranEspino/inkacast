@@ -9,21 +9,17 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.inkamedia.inkacast.R
-import com.inkamedia.inkacast.commons.Constants
 import com.inkamedia.inkacast.presentation.screen_device.adapter.DeviceAdapter
 import com.inkamedia.inkacast.presentation.screen_device.adapter.OnClickListener
 import com.inkamedia.inkacast.presentation.screen_device.entities.Devicetv
 import com.inkamedia.inkacast.databinding.ActivityDevicesBinding
 import com.inkamedia.inkacast.presentation.MainActivity
-import com.inkamedia.inkacast.presentation.screen_browser.videos_extract.VideolistFragment
-import com.inkamedia.inkacast.presentation.screen_home.ChromecastCennect
 import com.inkamedia.inkacast.presentation.screen_home.HomeFragment
 import com.inkamedia.inkacast.services.StreamService
 import com.inkamedia.inkacast.utils.dlna.engine.DLNAContainer
 import com.inkamedia.inkacast.utils.dlna.engine.MultiPointController
 import com.inkamedia.inkacast.utils.dlna.inter.IController
 import org.cybergarage.upnp.Device
-import java.util.Random
 
 class DevicesActivity : AppCompatActivity() , OnClickListener {
     private lateinit var mBinding: ActivityDevicesBinding

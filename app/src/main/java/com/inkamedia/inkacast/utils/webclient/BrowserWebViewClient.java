@@ -1,11 +1,13 @@
 package com.inkamedia.inkacast.utils.webclient;
 
-import com.inkamedia.inkacast.presentation.screen_browser.browser_extract.BrowserActivity;
+import com.inkamedia.inkacast.presentation.MainActivity;
 
 public class BrowserWebViewClient extends BrowserWebViewClient_VideoDetector {
-    public BrowserWebViewClient(BrowserActivity browserActivity) {
+
+    public BrowserWebViewClient(MainActivity browserActivity) {
         super(browserActivity);
     }
+
 
 
 }

@@ -19,7 +19,6 @@ class ContextApp: Application() {
     override fun onCreate() {
         super.onCreate()
         context = SharedPrefApp(applicationContext)
-
         instance = this
         instanceDatabase = Room.databaseBuilder(
             this, WebpageDatabase::class.java, "WebpageDatabase"

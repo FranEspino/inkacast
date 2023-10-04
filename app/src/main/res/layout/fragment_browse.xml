@@ -1,103 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/colorOnTertiary"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:padding="12dp"
+    android:layout_weight="1"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+    <LinearLayout
+        android:orientation="vertical"
+        android:weightSum="0.4"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+        android:layout_weight="0.15"
+        android:layout_height="0dp"
+        >
 
-    </androidx.appcompat.widget.Toolbar>
-    <com.facebook.shimmer.ShimmerFrameLayout
-        android:id="@+id/shimmer_1"
-        android:layout_width="match_parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-
-        android:layout_marginTop="?attr/actionBarSize"
-        android:layout_height="wrap_content">
-        <androidx.appcompat.widget.LinearLayoutCompat
+        <LinearLayout
+            android:id="@+id/ll_controlsbrosers"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:weightSum="1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:gravity="center"
-            android:orientation="vertical"
-            app:layout_constraintTop_toBottomOf="@+id/title_2" >
+            app:layout_constraintTop_toTopOf="parent">
 
-            <include layout="@layout/website_item_skeleton"  />
-            <include layout="@layout/website_item_skeleton" />
-            <include layout="@layout/website_item_skeleton"  />
-            <include layout="@layout/website_item_skeleton" />
-            <include layout="@layout/website_item_skeleton" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2">
 
-        </androidx.appcompat.widget.LinearLayoutCompat>
-    </com.facebook.shimmer.ShimmerFrameLayout>
-    <LinearLayout
-        android:id="@+id/ll_empty"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:visibility="gone"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/back"
+                    app:tint="@color/colorPrimary" />
 
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/next"
+                    app:tint="@color/colorPrimary" />
+            </LinearLayout>
 
-        <ImageView
-            android:layout_width="240dp"
-            android:layout_height="240dp"
-            android:src="@drawable/empty" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.8"
+                android:gravity="end|center">
 
-        <TextView
-            style="@style/Theme.Inkacast.TextDefault"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="18dp"
-            android:fontFamily="@font/roboto_bold"
-            android:paddingHorizontal="26dp"
-            android:text="@string/tv_empty"
-            android:textAlignment="center"
-            android:textSize="16sp" />
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/ll_websites"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:background="?attr/colorOnTertiary"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/tab_counter"
+                    android:fontFamily="@font/poppinsbold"
+                    android:paddingHorizontal="10dp"
+                    android:text="1"
+                    android:textAlignment="center"
+                    android:textColor="#B2B2B1"
+                    android:textSize="15sp" />
 
-        >
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_view"
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="8dp"
+                    android:src="@drawable/ic_menu"
+                    app:tint="@color/colorPrimary" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_searchview"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
-    </LinearLayout>
-    <WebView
-        android:visibility="gone"
-        android:id="@+id/webview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="?attr/actionBarSize"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        />
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/custom_seach"
+            android:padding="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ll_controlsbrosers">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/ic_search" />
+
+            <EditText
+                android:id="@+id/edt_search_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:hint="www.google.com"
+                android:imeOptions="actionSearch"
+                android:inputType="text"
+                android:lines="1"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:textColor="@color/backgroundDark"
+                android:textColorHint="@color/black"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_weight="0.95"
+        android:layout_height="0dp">
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:elevation="10dp"
+            app:cardCornerRadius="16dp"
+            android:layout_height="match_parent">
+
+        <WebView
+            android:id="@+id/webview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+</LinearLayout>

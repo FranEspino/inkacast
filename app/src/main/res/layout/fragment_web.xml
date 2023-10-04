@@ -38,7 +38,7 @@
                     android:layout_width="40dp"
                     android:layout_height="match_parent"
                     android:background="?attr/selectableItemBackground"
-                    android:src="@drawable/ic_back"
+                    android:src="@drawable/back"
                     tools:ignore="RedundantDescriptionCheck"
                     app:tint="?attr/colorOnSecondary"/>
 

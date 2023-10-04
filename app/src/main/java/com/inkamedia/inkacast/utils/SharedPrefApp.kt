@@ -21,4 +21,6 @@ class SharedPrefApp(val context: Context) {
     fun setShowCase(showcase:Boolean) =  storage.edit().putBoolean(SHOWCASE, showcase).apply()
     fun getShowCase():Boolean = storage.getBoolean(SHOWCASE, false)!!
 
+
+
 }

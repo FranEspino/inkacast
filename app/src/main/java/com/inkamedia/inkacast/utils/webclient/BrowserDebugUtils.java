@@ -24,6 +24,7 @@ public class BrowserDebugUtils {
                 if (!isWebContentsDebuggingEnabled) {
                     isWebContentsDebuggingEnabled = true;
                     WebView.setWebContentsDebuggingEnabled(true);
+
                     didChange = true;
                 }
             }

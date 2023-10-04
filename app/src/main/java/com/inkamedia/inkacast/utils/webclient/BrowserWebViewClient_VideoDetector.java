@@ -3,42 +3,77 @@ package com.inkamedia.inkacast.utils.webclient;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.net.http.SslError;
-import android.util.Log;
 import android.webkit.SslErrorHandler;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import com.inkamedia.inkacast.presentation.screen_browser.browser_extract.BrowserActivity;
+import com.inkamedia.inkacast.presentation.MainActivity;
 import com.inkamedia.inkacast.R;
 
 public class BrowserWebViewClient_VideoDetector extends WebViewClient {
 
-    private BrowserActivity browserActivity;
+    private boolean isFisrtTime, findFile = false;
+    private MainActivity browserActivity;
+    private boolean touchedScreen = false;
 
-    public BrowserWebViewClient_VideoDetector(BrowserActivity browserActivity) {
+    public BrowserWebViewClient_VideoDetector(MainActivity browserActivity) {
         super();
 
         this.browserActivity = browserActivity;
     }
+
 
     @Override
     public void onLoadResource(WebView view, String url) {
         process_URL(url, view);
     }
 
+
+    public void setTouchedScreen(boolean touched) {
+        touchedScreen = touched;
+    }
+
     @Override
     public boolean shouldOverrideUrlLoading(WebView view, String url) {
-        process_URL(url, view);
-        return false;
+        String mimeType = SharedUtils.getVideoMimeType(url);
+//        if(url.contains(MainActivity.currentUrl ) &&  !isFisrtTime){
+//            isFisrtTime = false;
+//            return  false;
+//        }
+
+        if (mimeType != null) {
+            process_URL(url, view);
+            return true;
+        }
+        if (touchedScreen) {
+            touchedScreen = false;
+            return true;
+        }
+        return findFile;
     }
 
     @Override
     public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
         String url = request.getUrl().toString();
-        process_URL(url, view);
-        return false;
+//            if(url.contains(BrowserActivity.currentUrl ) && !isFisrtTime ){
+//                isFisrtTime = false;
+//                return false;
+//            }
+
+
+
+        String mimeType = SharedUtils.getVideoMimeType(url);
+        if (mimeType != null) {
+            process_URL(url, view);
+            return true;
+        }
+        if (touchedScreen) {
+            touchedScreen = false;
+            return true;
+        }
+        return findFile;
     }
 
     @Override
@@ -75,16 +110,12 @@ public class BrowserWebViewClient_VideoDetector extends WebViewClient {
     private void process_URL(String uri, WebView view) {
         String mimeType = SharedUtils.getVideoMimeType(uri);
         if (mimeType != null) {
+            findFile = true;
             browserActivity.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
                     String referer = (view == null) ? null : view.getUrl();
-
-
                     browserActivity.addSavedVideo(uri, mimeType, referer);
-
-
-
                 }
             });
         }
@@ -96,7 +127,7 @@ public class BrowserWebViewClient_VideoDetector extends WebViewClient {
         StringBuilder sb = new StringBuilder();
 
         int error_code = error.getPrimaryError();
-        switch(error_code) {
+        switch (error_code) {
             case SslError.SSL_DATE_INVALID:
                 sb.append(browserActivity.getString(R.string.alertdialog_badssl_pageloadbehavior_reason_ssl_date_invalid));
                 break;
@@ -132,8 +163,7 @@ public class BrowserWebViewClient_VideoDetector extends WebViewClient {
             builder.setMessage(sb.toString());
         }
 
-        builder
-                .setTitle(
+        builder.setTitle(
                         R.string.alertdialog_badssl_pageloadbehavior_title
                 )
                 .setPositiveButton(

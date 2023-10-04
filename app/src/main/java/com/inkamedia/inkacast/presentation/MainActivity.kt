@@ -2,8 +2,8 @@ package com.inkamedia.inkacast.presentation
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
@@ -11,18 +11,17 @@ import com.digenio.inkacast.Chromecast
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.inkamedia.inkacast.R
 import com.inkamedia.inkacast.databinding.ActivityMainBinding
-import com.inkamedia.inkacast.presentation.screen_browser.viewModel.WebpageViewModel
+import com.inkamedia.inkacast.presentation.screen_browser.browser_extract.FabDetector
 import com.inkamedia.inkacast.presentation.screen_device.DevicesActivity
-import com.inkamedia.inkacast.services.StreamService
 import com.inkamedia.inkacast.utils.dlna.service.DLNAService
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() , FabDetector {
     private lateinit var mBinding: ActivityMainBinding
 
     companion object{
-          var chromecast: Chromecast? = null
+         var chromecast: Chromecast? = null
          lateinit var searchItemReference: MenuItem
          lateinit var seveItemReference: MenuItem
     }
@@ -65,6 +64,13 @@ class MainActivity : AppCompatActivity() {
 //            DMCApplication.getContext().setIsDeviceConnected(false)
 //        }
 //        chromecast.reconnectCast()
+    }
+
+    override fun showFabDetector(isShow: Boolean) {
+    }
+
+    fun addSavedVideo(uri: String, mimeType: String, referer: String) {
+       Log.d("videoList",uri )
     }
 
 }
